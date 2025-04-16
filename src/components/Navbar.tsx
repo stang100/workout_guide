@@ -25,8 +25,8 @@ const Navbar = () => {
   const menuItems = [
     { text: 'Home', path: '/', underConstruction: false },
     { text: 'Exercises', path: '/exercises', underConstruction: false },
-    { text: 'Workout Builder', path: '/workout-builder', underConstruction: true },
-    { text: 'Progress', path: '/progress', underConstruction: true },
+    { text: 'Workout Builder', path: '/workout-builder', underConstruction: false },
+    { text: 'Progress', path: '/progress', underConstruction: false },
     { text: 'Form Check', path: '/form-check', underConstruction: false },
   ];
 

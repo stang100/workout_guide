@@ -26,13 +26,13 @@ const Home = () => {
       title: 'Workout Builder',
       description: 'Create your personalized workout routine with our intelligent workout builder.',
       path: '/workout-builder',
-      underConstruction: true,
+      underConstruction: false,
     },
     {
       title: 'Progress Tracking',
       description: 'Track your fitness journey and celebrate your achievements.',
       path: '/progress',
-      underConstruction: true,
+      underConstruction: false,
     },
     {
       title: 'Form Check',
