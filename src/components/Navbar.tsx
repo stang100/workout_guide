@@ -13,6 +13,7 @@ import {
   useMediaQuery,
   Box,
   Tooltip,
+  alpha,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link as RouterLink } from 'react-router-dom';
@@ -44,6 +45,11 @@ const Navbar = () => {
           key={item.text}
           onClick={handleDrawerToggle}
           disabled={item.underConstruction}
+          sx={{
+            '&:hover': {
+              backgroundColor: alpha(theme.palette.primary.main, 0.1),
+            },
+          }}
         >
           <ListItemText 
             primary={
@@ -64,7 +70,7 @@ const Navbar = () => {
 
   return (
     <>
-      <AppBar position="static">
+      <AppBar position="static" elevation={0}>
         <Toolbar>
           {isMobile && (
             <IconButton
@@ -77,7 +83,15 @@ const Navbar = () => {
               <MenuIcon />
             </IconButton>
           )}
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography 
+            variant="h6" 
+            component="div" 
+            sx={{ 
+              flexGrow: 1,
+              fontWeight: 600,
+              color: 'primary.main',
+            }}
+          >
             Workout Guide
           </Typography>
           {!isMobile && (
@@ -94,6 +108,13 @@ const Navbar = () => {
                       component={RouterLink}
                       to={item.path}
                       disabled={item.underConstruction}
+                      sx={{
+                        color: 'text.primary',
+                        fontWeight: 500,
+                        '&:hover': {
+                          backgroundColor: alpha(theme.palette.primary.main, 0.1),
+                        },
+                      }}
                     >
                       {item.text}
                       {item.underConstruction && " (Soon)"}
@@ -112,6 +133,12 @@ const Navbar = () => {
         onClose={handleDrawerToggle}
         ModalProps={{
           keepMounted: true, // Better open performance on mobile.
+        }}
+        sx={{
+          '& .MuiDrawer-paper': {
+            width: 240,
+            boxSizing: 'border-box',
+          },
         }}
       >
         {drawer}
